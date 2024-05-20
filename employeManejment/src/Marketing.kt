@@ -16,6 +16,6 @@ class Marketing(name: String, age: Int, location: String? = null, private val ba
     }
 
     override fun leaveCalculator(): Int {
-        return 15
+        return 10
     }
 }

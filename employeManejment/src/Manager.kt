@@ -16,6 +16,6 @@ class Manager(name: String, age: Int, location: String? = null, private val base
     }
 
     override fun leaveCalculator(): Int {
-        return 25
+        return 20
     }
 }

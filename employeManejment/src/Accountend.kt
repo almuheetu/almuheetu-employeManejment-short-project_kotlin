@@ -16,6 +16,6 @@ class Accountant(name: String, age: Int, location: String? = null, private val b
     }
 
     override fun leaveCalculator(): Int {
-        return 20
+        return 15
     }
 }

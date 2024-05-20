@@ -71,6 +71,8 @@ for (employee in employees){
     val mdBonus = BonusfromMd(employee).bonus()
     println("BonusfromMd : $mdBonus")
 
+    val totalLeave = (employee as EmployLeave).leaveCalculator()
+    println("TotalLeave : $totalLeave")
 
 }
 

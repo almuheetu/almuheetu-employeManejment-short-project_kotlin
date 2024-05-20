@@ -16,6 +16,6 @@ class Sales(name: String, age: Int, location: String? = null, private val baseSa
     }
 
     override fun leaveCalculator(): Int {
-        return 18
+        return 5
     }
 }
