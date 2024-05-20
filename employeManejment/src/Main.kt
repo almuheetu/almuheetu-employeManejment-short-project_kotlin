@@ -2,7 +2,6 @@ fun main() {
     val employees = ArrayList<Employ>()
 
 
-
     val marketingEmployeesOne = Marketing(name = "Karim", age = 30, location = "Dhaka", baseSalary = 15000)
     employees.add(marketingEmployeesOne)
 
@@ -60,7 +59,7 @@ fun main() {
         }
     }
 
-    println("Total emoployees : ${employees.size}")
+    println("Total Emoployees : ${employees.size}")
     println("Marketing : $marketingCount")
     println("Accountant : $accountantCount")
     println("Manager : $managerCount")
