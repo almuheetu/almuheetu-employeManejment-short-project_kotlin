@@ -20,7 +20,7 @@ fun main() {
     employees.add(Manager(name = "samiya", age = 20, location = "Sylhet", baseSalary = 51000))
     employees.add(Manager(name = "jannat", age = 50, location = "citagong", baseSalary = 45000))
     employees.add(Manager(name = "Rabeya", age = 90, location = "feny", baseSalary = 54000))
-    employees.add(Manager(name = "Basori", age = 24, location = "Sylhet", baseSalary = 69000))
+    employees.add(Manager(name = "Nusrat", age = 24, location = "Rajshahi", baseSalary = 69000))
 
     employees.add(Sales(name = "Rabbi", age = 29, location = "Feni", baseSalary = 22000))
     employees.add(Sales(name = "Apple", age = 27, location = "naogaon", baseSalary = 22000))
@@ -48,7 +48,7 @@ fun main() {
     println("Total emoployees : ${employees.size}")
     println("Marketing : $marketingCount")
     println("Accountant : $accountantCount")
-    println("Maneger : $managerCount")
+    println("Manager : $managerCount")
     println("Sales : $salesCount")
 
 for (employee in employees){
@@ -64,6 +64,12 @@ for (employee in employees){
 
     val baseSalary = employee.salary()
     println("Base salary : $baseSalary")
+
+    val bonusSalary = (employee as EmployBonus).calculateBonus(baseSalary)
+    println("BonusSalary : $bonusSalary")
+
+    val mdBonus = BonusfromMd(employee).bonus()
+    println("BonusfromMd : $mdBonus")
 
 
 }
