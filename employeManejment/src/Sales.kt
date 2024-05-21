@@ -1,4 +1,4 @@
-class Sales(name: String, age: Int, location: String? = null, private val baseSalary: Int = 35000) :
+class Sales(name: String, age: Int, location: String? = null, val baseSalary: Int = 35000) :
     Employ(name, age, location), EmployBonus, EmployLeave {
 
     override fun salary(): Int = baseSalary

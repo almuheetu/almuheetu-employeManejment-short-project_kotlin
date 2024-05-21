@@ -1,4 +1,4 @@
-class Marketing(name: String, age: Int, location: String? = null, private val baseSalary: Int = 10000) :
+class Marketing(name: String, age: Int, location: String? = null, val baseSalary: Int = 10000) :
     Employ(name, age, location), EmployBonus, EmployLeave {
 
 

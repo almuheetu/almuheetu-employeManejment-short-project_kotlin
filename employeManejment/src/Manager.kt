@@ -1,4 +1,4 @@
-class Manager(name: String, age: Int, location: String? = null, private val baseSalary: Int = 55000) :
+class Manager(name: String, age: Int, location: String? = null, val baseSalary: Int = 55000) :
     Employ(name, age, location), EmployBonus, EmployLeave {
 
     override fun salary(): Int = baseSalary

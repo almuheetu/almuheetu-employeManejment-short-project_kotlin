@@ -1,4 +1,4 @@
-class Accountant(name: String, age: Int, location: String? = null, private val baseSalary: Int = 15000) :
+class Accountant(name: String, age: Int, location: String? = null, val baseSalary: Int = 15000) :
     Employ(name, age, location), EmployBonus, EmployLeave {
 
     override fun salary(): Int = baseSalary

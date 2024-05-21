@@ -43,7 +43,6 @@ fun main() {
     employees.add(salesEmployeesTwo)
 
     val salesEmployeesThree = Sales(name = "Mahfuz", age = 22, baseSalary = 21000)
-
     employees.add(salesEmployeesThree)
 
 

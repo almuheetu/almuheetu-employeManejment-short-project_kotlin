@@ -6,7 +6,6 @@ class BonusFromMd {
 }
 */
 fun Employ.bonusFromMd(bonusFromMd:Int = 2000):Int{
-
     return bonusFromMd
 }
 
