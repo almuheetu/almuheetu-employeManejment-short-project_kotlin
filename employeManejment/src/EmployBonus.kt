@@ -1,3 +1,3 @@
 interface EmployBonus {
-    fun calculateBonus(salary: Int): Int
+    fun calculateBonus(): Int
 }

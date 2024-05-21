@@ -1,8 +1,10 @@
-@file:Suppress("NAME_SHADOWING")
 
 fun main() {
     val employees = ArrayList<Employ>()
 
+
+    val marketingEmployeesDefault = Marketing(name = "Karim", age = 30, location = "Dhaka")
+    employees.add(marketingEmployeesDefault)
 
     val marketingEmployeesOne = Marketing(name = "Karim", age = 30, location = "Dhaka", baseSalary = 15000)
     employees.add(marketingEmployeesOne)
@@ -41,124 +43,114 @@ fun main() {
     employees.add(salesEmployeesTwo)
 
     val salesEmployeesThree = Sales(name = "Mahfuz", age = 22, baseSalary = 21000)
+
     employees.add(salesEmployeesThree)
 
 
-    var marketingCount = 0
-    var accountantCount = 0
-    var managerCount = 0
-    var salesCount = 0
+    val marketingEmployees = ArrayList<Marketing>()
+    val accountantEmployees = ArrayList<Accountant>()
+    val managerEmployees = ArrayList<Manager>()
+    val salesEmployees = ArrayList<Sales>()
 
-    val marketingEmployees1 = ArrayList<Employ>()
-    val accountantEmployees1 = ArrayList<Employ>()
-    val managerEmployees1 = ArrayList<Employ>()
-    val salesEmployees1 = ArrayList<Employ>()
 
     for (employee in employees) {
         if (employee is Marketing) {
-            marketingCount++
-            marketingEmployees1.add(employee)
+            marketingEmployees.add(employee)
         } else if (employee is Accountant) {
-            accountantCount++
-            accountantEmployees1.add(employee)
+            accountantEmployees.add(employee)
         } else if (employee is Manager) {
-            managerCount++
-            managerEmployees1.add(employee)
+            managerEmployees.add(employee)
         } else if (employee is Sales) {
-            salesCount++
-            salesEmployees1.add(employee)
+            salesEmployees.add(employee)
         }
     }
+
 
     println("Total Emoployees : ${employees.size}")
 
-    println("Marketing : $marketingCount")
-    marketingEmployees1.forEach {
-
+    println("Marketing : ${marketingEmployees.count()}")
+    marketingEmployees.forEach {
+        val mdBonusForMarketer = 2000
         println("Name : ${it.name}, Age : ${it.age}, Location : ${it.location}, baseSalary : ${it.salary()}")
 
-        for (marketingEmployees1 in employees ){
-        val baseSalary = marketingEmployees1.salary()
-            val bonusSalary = (marketingEmployees1 as EmployBonus).calculateBonus(baseSalary)
-            println("Bonus Salary: $bonusSalary")
+        val baseSalary = it.salary()
+        val bonusSalary = it.calculateBonus()
+        println("Bonus Salary: $bonusSalary")
 
-            val mdBonus = BonusfromMd(marketingEmployees1).bonus()
-            println("Bonus from MD: $mdBonus")
+        println("Bonus from MD: $mdBonusForMarketer")
 
-            val totalLeave = (marketingEmployees1 as EmployLeave).leaveCalculator()
-            println("Total Leave: $totalLeave")
+        val totalLeave = it.leaveCalculator()
+        println("Total Leave: $totalLeave")
 
-            val totalSalary = baseSalary + bonusSalary + mdBonus
-            println("Total Salary: $totalSalary")
-            break
-        }
+        val totalSalary = baseSalary + bonusSalary + it.bonusFromMd()
+        println("Total Salary: $totalSalary")
+
+
     }
 
     println()
-    println("Accountant : $accountantCount")
-    accountantEmployees1.forEach{
+    println("Accountant : ${accountantEmployees.count()}")
+    accountantEmployees.forEach {
+        val mdBonusForAccountant = 3000
         println("Name : ${it.name}, Age : ${it.age}, Location : ${it.location}, baseSalary : ${it.salary()}")
 
-        for (accountantEmployees1 in employees ){
-            val baseSalary = accountantEmployees1.salary()
-            val bonusSalary = (accountantEmployees1 as EmployBonus).calculateBonus(baseSalary)
-            println("Bonus Salary: $bonusSalary")
+        val baseSalary = it.salary()
+        val bonusSalary = it.calculateBonus()
+        println("Bonus Salary: $bonusSalary")
 
-            val mdBonus = BonusfromMd(accountantEmployees1).bonus()
-            println("Bonus from MD: $mdBonus")
+        val mdBonus = mdBonusForAccountant
+        println("Bonus from MD: $mdBonus")
 
-            val totalLeave = (accountantEmployees1 as EmployLeave).leaveCalculator()
-            println("Total Leave: $totalLeave")
+        val totalLeave = it.leaveCalculator()
+        println("Total Leave: $totalLeave")
 
-            val totalSalary = baseSalary + bonusSalary + mdBonus
-            println("Total Salary: $totalSalary")
-            break
-        }
+        val totalSalary = baseSalary + bonusSalary + it.bonusFromMd(bonusFromMd = 3000)
+        println("Total Salary: $totalSalary")
+
+
     }
 
     println()
-    println("Manager : $managerCount")
-    managerEmployees1.forEach{
+    println("Manager : ${managerEmployees.count()}")
+    managerEmployees.forEach {
+        val mdBonusForManager = 4000
         println("Name : ${it.name}, Age : ${it.age}, Location : ${it.location}, baseSalary : ${it.salary()}")
-        for (managerEmployees1 in employees ){
-            val baseSalary = managerEmployees1.salary()
-            val bonusSalary = (managerEmployees1 as EmployBonus).calculateBonus(baseSalary)
-            println("Bonus Salary: $bonusSalary")
 
-            val mdBonus = BonusfromMd(managerEmployees1).bonus()
-            println("Bonus from MD: $mdBonus")
+        val baseSalary = it.salary()
+        val bonusSalary = it.calculateBonus()
+        println("Bonus Salary: $bonusSalary")
 
-            val totalLeave = (managerEmployees1 as EmployLeave).leaveCalculator()
-            println("Total Leave: $totalLeave")
+        val mdBonus = mdBonusForManager
+        println("Bonus from MD: $mdBonus")
 
-            val totalSalary = baseSalary + bonusSalary + mdBonus
-            println("Total Salary: $totalSalary")
-            break
-        }
+        val totalLeave = it.leaveCalculator()
+        println("Total Leave: $totalLeave")
+
+        val totalSalary = baseSalary + bonusSalary + it.bonusFromMd(mdBonusForManager)
+        println("Total Salary: $totalSalary")
+
+
     }
 
     println()
-    println("Sales : $salesCount")
-    salesEmployees1.forEach{
+    println("Sales : ${salesEmployees.count()}")
+    salesEmployees.forEach {
+        val mdBonusForSaler= 4000
         println("Name : ${it.name}, Age : ${it.age}, Location : ${it.location}, baseSalary : ${it.salary()}")
-        for (salesEmployees1 in employees ){
-            val baseSalary = salesEmployees1.salary()
-            val bonusSalary = (salesEmployees1 as EmployBonus).calculateBonus(baseSalary)
-            println("Bonus Salary: $bonusSalary")
 
-            val mdBonus = BonusfromMd(salesEmployees1).bonus()
-            println("Bonus from MD: $mdBonus")
+        val baseSalary = it.salary()
+        val bonusSalary = it.calculateBonus()
+        println("Bonus Salary: $bonusSalary")
 
-            val totalLeave = (salesEmployees1 as EmployLeave).leaveCalculator()
-            println("Total Leave: $totalLeave")
+        val mdBonus = mdBonusForSaler
+        println("Bonus from MD: $mdBonus")
 
-            val totalSalary = baseSalary + bonusSalary + mdBonus
-            println("Total Salary: $totalSalary")
-            break
-        }
+        val totalLeave = it.leaveCalculator()
+        println("Total Leave: $totalLeave")
+
+        val totalSalary = baseSalary + bonusSalary + it.bonusFromMd(mdBonusForSaler)
+        println("Total Salary: $totalSalary")
     }
-
-
 
 
 //    for (employee in employees) {
