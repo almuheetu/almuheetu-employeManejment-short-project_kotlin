@@ -83,7 +83,7 @@ fun main() {
 
         val totalSalary = baseSalary + bonusSalary + it.bonusFromMd()
         println("Total Salary: $totalSalary")
-
+ 
 
     }
 

@@ -14,3 +14,4 @@ class Marketing(name: String, age: Int, location: String? = null, val baseSalary
         return 10
     }
 }
+
